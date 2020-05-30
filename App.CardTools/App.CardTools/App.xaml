@@ -5,7 +5,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="App.CardTools.App">
+    
     <Application.Resources>
-        
+        <Color x:Key="primaryColor">#4ac7cb</Color>
+        <Color x:Key="primaryLightColor">#83fafe</Color>
+        <Color x:Key="primaryDarkColor">#00969a</Color>
+        <Color x:Key="secondaryColor">#6b1230</Color>
+        <Color x:Key="secondaryLightColor">#9d4259</Color>
+        <Color x:Key="secondaryDarkColor">#3c0006</Color>
+        <Color x:Key="primaryTextColor">#000000</Color>
+        <Color x:Key="secondaryTextColor">#ffffff</Color>
+
+        <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Font Awesome 5 Free" />
+            <On Platform="Android" Value="fa-solid-900.ttf#Font Awesome 5 Free" />
+        </OnPlatform>
+
     </Application.Resources>
 </Application>

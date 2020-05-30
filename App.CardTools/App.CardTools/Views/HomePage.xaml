@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:App.CardTools.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:App.CardTools.ViewModels" xmlns:controls="clr-namespace:App.CardTools.Controls"
              mc:Ignorable="d"
              x:Class="App.CardTools.Views.HomePage">
 
@@ -11,10 +11,107 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <Grid BackgroundColor="{StaticResource secondaryColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Tools List-->
+            <controls:CustomFrame BackgroundGradientStartColor="{StaticResource primaryDarkColor}" BackgroundGradientEndColor="{StaticResource primaryColor}" Grid.Row="0" CornerRadius="0,0,80,0">
+
+                <StackLayout>
+                    <StackLayout Margin="15,20" Spacing="0">
+
+                        <Grid ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Frame Grid.Column="0" CornerRadius="100" 
+                                       HeightRequest="60"
+                                       WidthRequest="60"
+                                       Padding="0"
+                                       IsClippedToBounds="True"
+                                       >
+                                <Image Source="https://avatars1.githubusercontent.com/u/5353685?v=4" />
+                            </Frame>
+                            <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="CenterAndExpand">
+                                <Label Text="Alexandre Sanlim" FontAttributes="Bold" FontSize="Title" TextColor="{StaticResource primaryTextColor}"/>
+                                <Label Text="alexandresanlim.github.io" FontSize="Subtitle" TextColor="{StaticResource primaryTextColor}"/>
+                            </StackLayout>
+                            <Image Grid.Column="2" VerticalOptions="Start">
+                                <Image.Source>
+                                    <FontImageSource
+                                        Color="{StaticResource primaryTextColor}"
+                                        FontFamily="{DynamicResource MaterialFontFamily}"
+                                        Size="25"
+                                        Glyph="&#xf0f3;"
+                                        />
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+
+
+                    </StackLayout>
+
+                    <controls:CustomCollectionView Margin="30,0,0,0" SelectionMode="Single" BackgroundColor="Transparent" ItemsSource="{Binding ToolsList}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0">
+                                        <Frame CornerRadius="15" Padding="18"  HeightRequest="70" WidthRequest="70" HasShadow="False" BackgroundColor="{Binding SecondaryColor}">
+                                            <Frame.Content>
+                                                <StackLayout Spacing="0">
+                                                    <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                                        <Image.Source>
+                                                            <FontImageSource
+                                                                Color="{Binding OnSecondaryColor}"
+                                                                FontFamily="{DynamicResource MaterialFontFamily}"
+                                                                Size="25"
+                                                                Glyph="{Binding Icon}"
+                                                                />
+                                                        </Image.Source>
+                                                    </Image>
+                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{Binding OnSecondaryColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                                                    <!--<Label Text="{Binding Description}" FontSize="Body" TextColor="{StaticResource OnPrimaryColor}" HorizontalOptions="Center" VerticalOptions="End" />-->
+                                                </StackLayout>
+                                            </Frame.Content>
+                                        </Frame>
+                                    </StackLayout>
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </controls:CustomCollectionView>
+
+                </StackLayout>
+            </controls:CustomFrame>
+
+            <!--Body-->
+
+            <controls:CustomFrame Grid.Row="1" BackgroundColor="{StaticResource primaryColor}" Margin="20" CornerRadius="15">
+                
+                
+
+
+            </controls:CustomFrame>
+
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>
