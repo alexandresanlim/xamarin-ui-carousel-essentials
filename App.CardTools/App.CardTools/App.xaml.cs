@@ -24,6 +24,7 @@ namespace App.CardTools
                 DependencyService.Register<MockDataStore>();
             else
                 DependencyService.Register<AzureDataStore>();
+
             MainPage = new AppShell();
         }
 

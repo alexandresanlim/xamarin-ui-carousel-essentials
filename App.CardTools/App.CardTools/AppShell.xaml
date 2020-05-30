@@ -31,6 +31,9 @@
 
     <!-- Your Pages -->
     <TabBar>
+        <Tab Title="Home">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
         <Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
@@ -39,34 +42,35 @@
         </Tab>
     </TabBar>
 
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
+    <!--Optional Templates 
+    These may be provided inline as below or as separate classes.
 
-    // This header appears at the top of the Flyout.
-    <Shell.FlyoutHeaderTemplate>
+    This header appears at the top of the Flyout.-->
+    <!--<Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid>ContentHere</Grid>
+            <Grid>
+                <Label Text="Teste"/>
+            </Grid>
         </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
+    </Shell.FlyoutHeaderTemplate>-->
 
-    // ItemTemplate is for ShellItems as displayed in a Flyout
+    <!--ItemTemplate is for ShellItems as displayed in a Flyout
     <Shell.ItemTemplate>
         <DataTemplate>
             <ContentView>
                 Bindable Properties: Title, Icon
             </ContentView>
         </DataTemplate>
-    </Shell.ItemTemplate>
+    </Shell.ItemTemplate>-->
 
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
+    <!--MenuItemTemplate is for MenuItems as displayed in a Flyout
     <Shell.MenuItemTemplate>
         <DataTemplate>
             <ContentView>
                 Bindable Properties: Text, Icon
             </ContentView>
         </DataTemplate>
-    </Shell.MenuItemTemplate>
+    </Shell.MenuItemTemplate>-->
 
-    -->
 
 </Shell>
