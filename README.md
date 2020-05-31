@@ -5,6 +5,7 @@ App cards, onde o usuário pode personalizar seus cards,
 ex: 
 - Lanterna
 - Um numero randomico
+- Leitor de QrCode
 - Cara x Coroa (Jogar uma moeda)
 - preço btc, 
 - preço usd, 
