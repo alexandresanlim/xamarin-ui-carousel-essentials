@@ -6,6 +6,7 @@ ex:
 - Lanterna
 - Um numero randomico
 - Leitor de QrCode
+- Cupom de desconto
 - Cara x Coroa (Jogar uma moeda)
 - preço btc, 
 - preço usd, 
