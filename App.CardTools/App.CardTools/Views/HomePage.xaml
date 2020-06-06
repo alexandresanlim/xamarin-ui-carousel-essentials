@@ -4,7 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:App.CardTools.ViewModels" xmlns:controls="clr-namespace:App.CardTools.Controls"
              mc:Ignorable="d"
-             x:Class="App.CardTools.Views.HomePage">
+             x:Class="App.CardTools.Views.HomePage"
+             Shell.NavBarIsVisible="False"
+             >
 
     <ContentPage.BindingContext>
         <vm:HomeViewModel />
@@ -14,7 +16,7 @@
 
         <Grid BackgroundColor="{DynamicResource secondaryColor}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -61,7 +63,7 @@
 
                     </StackLayout>
 
-                    <controls:CustomCollectionView Margin="30,0,0,0" SelectionMode="Single" BackgroundColor="Transparent" ItemsSource="{Binding ToolsList}" SelectedItem="{Binding CurrentSelectedTool}" SelectionChangedCommand="{Binding ChangeSelectToolCommand}">
+                    <controls:CustomCollectionView Margin="30,0,0,0" SelectionMode="Single" ItemsSource="{Binding ToolsList}" SelectedItem="{Binding CurrentSelectedTool}" SelectionChangedCommand="{Binding ChangeSelectToolCommand}">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Horizontal"/>
                         </CollectionView.ItemsLayout>
