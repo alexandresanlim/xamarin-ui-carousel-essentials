@@ -12,14 +12,14 @@
 
     <ContentPage.Content>
 
-        <Grid BackgroundColor="{StaticResource secondaryColor}">
+        <Grid BackgroundColor="{DynamicResource secondaryColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.6*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!--Tools List-->
-            <controls:CustomFrame BackgroundGradientStartColor="{StaticResource primaryDarkColor}" BackgroundGradientEndColor="{StaticResource primaryColor}" Grid.Row="0" CornerRadius="0,0,80,0">
+            <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDarkColor}" BackgroundGradientEndColor="{DynamicResource primaryColor}" Grid.Row="0" CornerRadius="0,0,80,0">
 
                 <StackLayout>
                     <StackLayout Margin="15,20" Spacing="0">
@@ -43,13 +43,13 @@
                                 <Image Source="https://avatars1.githubusercontent.com/u/5353685?v=4" />
                             </Frame>
                             <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="CenterAndExpand">
-                                <Label Text="Alexandre Sanlim" FontAttributes="Bold" FontSize="Title" TextColor="{StaticResource primaryTextColor}"/>
-                                <Label Text="alexandresanlim.github.io" FontSize="Subtitle" TextColor="{StaticResource primaryTextColor}"/>
+                                <Label Text="Alexandre Sanlim" FontAttributes="Bold" FontSize="Title" TextColor="{DynamicResource secondaryTextColor}"/>
+                                <Label Text="alexandresanlim.github.io" FontSize="Subtitle" TextColor="{DynamicResource secondaryTextColor}"/>
                             </StackLayout>
                             <Image Grid.Column="2" VerticalOptions="Start">
                                 <Image.Source>
                                     <FontImageSource
-                                        Color="{StaticResource primaryTextColor}"
+                                        Color="{DynamicResource secondaryTextColor}"
                                         FontFamily="{DynamicResource MaterialFontFamily}"
                                         Size="25"
                                         Glyph="&#xf0f3;"
@@ -61,7 +61,7 @@
 
                     </StackLayout>
 
-                    <controls:CustomCollectionView Margin="30,0,0,0" SelectionMode="Single" BackgroundColor="Transparent" ItemsSource="{Binding ToolsList}">
+                    <controls:CustomCollectionView Margin="30,0,0,0" SelectionMode="Single" BackgroundColor="Transparent" ItemsSource="{Binding ToolsList}" SelectedItem="{Binding CurrentSelectedTool}" SelectionChangedCommand="{Binding ChangeSelectToolCommand}">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Horizontal"/>
                         </CollectionView.ItemsLayout>
@@ -73,20 +73,21 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Column="0">
-                                        <Frame CornerRadius="15" Padding="18"  HeightRequest="70" WidthRequest="70" HasShadow="False" BackgroundColor="{Binding SecondaryColor}">
+      
+                                        <Frame CornerRadius="15" Padding="18"  HeightRequest="70" WidthRequest="70" HasShadow="False" BackgroundColor="{DynamicResource secondaryColor}">
                                             <Frame.Content>
                                                 <StackLayout Spacing="0">
                                                     <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                                         <Image.Source>
                                                             <FontImageSource
-                                                                Color="{Binding OnSecondaryColor}"
+                                                                Color="{Binding Style.OnSecondaryColor}"
                                                                 FontFamily="{DynamicResource MaterialFontFamily}"
                                                                 Size="25"
                                                                 Glyph="{Binding Icon}"
                                                                 />
                                                         </Image.Source>
                                                     </Image>
-                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{Binding OnSecondaryColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{Binding Style.OnSecondaryColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
 
                                                     <!--<Label Text="{Binding Description}" FontSize="Body" TextColor="{StaticResource OnPrimaryColor}" HorizontalOptions="Center" VerticalOptions="End" />-->
                                                 </StackLayout>
@@ -104,10 +105,15 @@
 
             <!--Body-->
 
-            <controls:CustomFrame Grid.Row="1" BackgroundColor="{StaticResource primaryColor}" Margin="20" CornerRadius="15">
-                
-                
+            <controls:CustomFrame Grid.Row="1" BackgroundGradientStartColor="{DynamicResource primaryDarkColor}" BackgroundGradientEndColor="{DynamicResource primaryColor}" Margin="20" CornerRadius="15">
 
+
+                <controls:StackLayoutBindable Items="{Binding ContentData}"></controls:StackLayoutBindable>
+
+                <!--<StackLayout BindableLayout.ItemsSource="{Binding ContentData}">
+                    
+                </StackLayout>-->
+                <!--<Label Text="{Binding CurrentMainText}" FontSize="Body" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
 
             </controls:CustomFrame>
 

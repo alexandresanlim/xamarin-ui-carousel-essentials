@@ -14,7 +14,14 @@ namespace App.CardTools.Views
     {
         public HomePage()
         {
+           
+
             InitializeComponent();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Resources["primaryColor"] = Color.Red;
         }
     }
 }

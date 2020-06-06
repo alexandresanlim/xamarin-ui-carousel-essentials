@@ -7,6 +7,9 @@ using Xamarin.Forms;
 
 using App.CardTools.Models;
 using App.CardTools.Services;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using App.CardTools.Services.DeviceApi;
 
 namespace App.CardTools.ViewModels
 {
@@ -51,6 +54,27 @@ namespace App.CardTools.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
+
+        #region Require
+
+        public async Task RequirePermission(Func<Task> task, Permissions.BasePermission permission, Func<Task> taskToNotPermission = null)
+        {
+            var status = await PermissionService.CheckAndRequestPermissionAsync(permission);
+
+            if (status != Xamarin.Essentials.PermissionStatus.Granted)
+            {
+                //await UserDialogService.AlertAsync("Não é possive continuar, permissão não concedida");
+
+                if (taskToNotPermission != null)
+                    await taskToNotPermission.Invoke();
+
+                return;
+            }
+
+            await task.Invoke();
+        }
+
         #endregion
     }
 }
