@@ -2,6 +2,10 @@
 
 App cards, onde o usuário pode personalizar seus cards, 
 
+# Ideias
+
+- Um espaço para chamar uma função por gestos.
+
 ex: 
 - Lanterna
 - Um numero randomico
