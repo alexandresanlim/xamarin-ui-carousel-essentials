@@ -6,6 +6,8 @@ App cards, onde o usuário pode personalizar seus cards,
 AppCards.TK ToCards 4Your Cards
 Tools
 Tookit
+Mineapp
+Essentials App
 
 # Ideias
 
