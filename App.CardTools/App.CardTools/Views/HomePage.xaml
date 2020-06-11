@@ -82,14 +82,14 @@
                                                     <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                                         <Image.Source>
                                                             <FontImageSource
-                                                                Color="{Binding Style.OnSecondaryColor}"
+                                                                Color="{DynamicResource secondaryTextColor}"
                                                                 FontFamily="{DynamicResource MaterialFontFamily}"
                                                                 Size="25"
                                                                 Glyph="{Binding Icon}"
                                                                 />
                                                         </Image.Source>
                                                     </Image>
-                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{Binding Style.OnSecondaryColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource secondaryTextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
 
                                                     <!--<Label Text="{Binding Description}" FontSize="Body" TextColor="{StaticResource OnPrimaryColor}" HorizontalOptions="Center" VerticalOptions="End" />-->
                                                 </StackLayout>

@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Xamarin.Forms;
+
+namespace App.CardTools.Models
+{
+    public class UnitConverter
+    {
+        public string Title { get; set; }
+
+        public Command Command { get; set; }
+
+        public object EntryType { get; set; }
+    }
+}
