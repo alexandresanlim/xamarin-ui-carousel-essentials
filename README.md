@@ -12,6 +12,10 @@ Libre tk
 essential4.me
 cacai.me
 esteta.me
+motiro.me
+vogelfrei.me (libre como um passaro)
+ttool.me
+1tool.me
 
 # Ideias
 
