@@ -11,6 +11,9 @@ namespace App.CardTools.Controls
         {
             //BackgroundColor = Color.Red;
             TextColor = App.Style.SecondaryTextColor;
+            ClearButtonVisibility = ClearButtonVisibility.WhileEditing;
+            BackgroundColor = App.Style.PrimaryColor;
+            //PlaceholderColor = App.Style.SecondaryTextColor;
 
         }
     }

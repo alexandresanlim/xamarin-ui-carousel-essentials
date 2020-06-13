@@ -24,13 +24,6 @@ namespace App.CardTools.Data
             Icon = FontAwesomeSolid.Sun,
         };
 
-        public static ToolMenu DeviceInfo => new ToolMenu
-        {
-            Text = "My Device Info",
-            //Style = MenuStyle.GetCombination(),
-            Icon = FontAwesomeSolid.Wifi,
-        };
-
         public static ToolMenu Location => new ToolMenu
         {
             Text = "My Connection",
@@ -47,9 +40,9 @@ namespace App.CardTools.Data
 
         public static ToolMenu TextToSpeech => new ToolMenu
         {
-            Text = "My Connection",
+            Text = "Text to speech",
             //Style = MenuStyle.GetCombination(),
-            Icon = FontAwesomeSolid.Wifi,
+            //Icon = FontAwesomeSolid.Wifi,
         };
 
         public static ToolMenu UnitConveter => new ToolMenu
@@ -57,6 +50,21 @@ namespace App.CardTools.Data
             Text = "Unit Converter",
             //Style = MenuStyle.GetCombination(),
             Icon = FontAwesomeSolid.ExchangeAlt,
+        };
+
+        public static ToolMenu SendWhatsAppMessage => new ToolMenu
+        {
+            Text = "WhatsApp without contact",
+            //Style = MenuStyle.GetCombination(),
+            Icon = FontAwesomeBrands.Whatsapp,
+            IconIsBrand = true
+            
+        };
+
+        public static ToolMenu MyDeviceInfo => new ToolMenu
+        {
+            Text = "My device info",
+            Icon = FontAwesomeSolid.MobileAlt
         };
 
         public static ToolMenu SetCommand(this ToolMenu toolsMenu, Command command)

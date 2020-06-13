@@ -9,8 +9,10 @@ namespace App.CardTools.Models
     {
         public string Title { get; set; }
 
+        public string InputText { get; set; }
+
         public Command Command { get; set; }
 
-        public object EntryType { get; set; }
+        public string PlaceholderPresentation => "Entry " + InputText + " to converter";
     }
 }

@@ -90,22 +90,16 @@ namespace App.CardTools.ViewModels
                             }
                         });
                     })),
-                    DataTools.UnitConveter.SetCommand(new Command(async () =>
+                    DataTools.UnitConveter.SetCommand(new Command(() =>
                     {
                         ContentData.Clear();
 
-                        //var gridValues = new Grid();
-                        //gridValues.ColumnDefinitions.Add(new ColumnDefinition{ Width = GridLength.Star});
-                        //gridValues.ColumnDefinitions.Add(new ColumnDefinition{ Width = GridLength.Auto});
-                        //gridValues.ColumnDefinitions.Add(new ColumnDefinition{ Width = GridLength.Star});
+                        var optionSelected = new UnitConverter{ Title = "Unit to Unit" };
 
-                        //gridValues.Children.Add(new Entry(),0,0);
-                        //gridValues.Children.Add(new Entry(),2,0);
+                        var resultText = new CustomLabel { HorizontalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold };
 
-                         var optionSelected = new UnitConverter{ Title = "Unit to Unit" };
-                         var resultText = new CustomLabel { VerticalOptions = LayoutOptions.Center };
+                        var entry = new CustomEntry { Keyboard = Keyboard.Numeric, IsVisible = false };
 
-                        var entry = new CustomEntry { Keyboard = Keyboard.Numeric };
                         entry.TextChanged +=(object sender, TextChangedEventArgs e) =>
                         {
                             if(string.IsNullOrEmpty(e?.NewTextValue))
@@ -120,42 +114,42 @@ namespace App.CardTools.ViewModels
                         };
 
 
-                        var optionSelectedText = new CustomLabel();
+                        var optionSelectedText = new CustomLabel{ HorizontalOptions = LayoutOptions.Center };
                        
                         //double resultConverter = 0;
                         var convertersAvailable = new List<UnitConverter>
                                         {
-                                            new UnitConverter{Title = "Atmospheres To Pascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.AtmospheresToPascals(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Celsius To Fahrenheit", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.CelsiusToFahrenheit(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Celsius To Kelvin", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.CelsiusToKelvin(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Atmospheres", Title = "Atmospheres To Pascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.AtmospheresToPascals(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Celsius", Title = "Celsius To Fahrenheit", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.CelsiusToFahrenheit(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Celsius",Title = "Celsius To Kelvin", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.CelsiusToKelvin(entryValue).ToString(); })},
                                             //new UnitConverter{Title = "Coordinates To Kilometers", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.CoordinatesToKilometers(entryValue).ToString(); })},
                                             //new UnitConverter{Title = "Coordinates To Miles", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.CoordinatesToMiles(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Degrees Per Second To Hertz", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.DegreesPerSecondToHertz(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Degrees Per Second To RadiansPerSecond", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.DegreesPerSecondToRadiansPerSecond(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Degrees To Radians", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.DegreesToRadians(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Fahrenheit To Celsius", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.FahrenheitToCelsius(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Hectopascals To Kilopascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HectopascalsToKilopascals(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Hectopascals To Pascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HectopascalsToPascals(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Hertz To Degrees Per Second", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HertzToDegreesPerSecond(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Hertz To RadiansPerSecond", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HertzToRadiansPerSecond(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "International Feet To Meters", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.InternationalFeetToMeters(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Kelvin To Celsius", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KelvinToCelsius(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Kilograms To Pounds", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilogramsToPounds(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Kilometers To Miles", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilometersToMiles(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Kilopascals To Hectopascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilopascalsToHectopascals(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Kilopascals To Pascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilopascalsToPascals(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Meters To International Feet", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MetersToInternationalFeet(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Meters To US Survey Feet", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MetersToUSSurveyFeet(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Miles To Kilometers", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MilesToKilometers(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Miles To Meters", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MilesToMeters(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Pascals To Atmospheres", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.PascalsToAtmospheres(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Pounds To Kilograms", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.PoundsToKilograms(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Pounds To Stones", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.PoundsToStones(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Radians Per Second To Degrees Per Second", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.RadiansPerSecondToDegreesPerSecond(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Radians Per Second To Hertz", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.RadiansPerSecondToHertz(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Radians To Degrees", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.RadiansToDegrees(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "Stones To Pounds", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.StonesToPounds(entryValue).ToString(); })},
-                                            new UnitConverter{Title = "US Survey Feet To Meters", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.USSurveyFeetToMeters(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Degrees",Title = "Degrees Per Second To Hertz", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.DegreesPerSecondToHertz(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Degrees",Title = "Degrees Per Second To RadiansPerSecond", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.DegreesPerSecondToRadiansPerSecond(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Degrees",Title = "Degrees To Radians", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.DegreesToRadians(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Fahrenheit",Title = "Fahrenheit To Celsius", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.FahrenheitToCelsius(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Hectopascals",Title = "Hectopascals To Kilopascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HectopascalsToKilopascals(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Hectopascals",Title = "Hectopascals To Pascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HectopascalsToPascals(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Hertz",Title = "Hertz To Degrees Per Second", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HertzToDegreesPerSecond(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Hertz",Title = "Hertz To RadiansPerSecond", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.HertzToRadiansPerSecond(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "International Feet",Title = "International Feet To Meters", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.InternationalFeetToMeters(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Kelvin",Title = "Kelvin To Celsius", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KelvinToCelsius(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Kilograms",Title = "Kilograms To Pounds", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilogramsToPounds(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Kilometers",Title = "Kilometers To Miles", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilometersToMiles(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Kilopascals",Title = "Kilopascals To Hectopascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilopascalsToHectopascals(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Kilopascals",Title = "Kilopascals To Pascals", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.KilopascalsToPascals(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Meters",Title = "Meters To International Feet", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MetersToInternationalFeet(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Meters",Title = "Meters To US Survey Feet", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MetersToUSSurveyFeet(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Miles",Title = "Miles To Kilometers", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MilesToKilometers(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Miles",Title = "Miles To Meters", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.MilesToMeters(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Pascals",Title = "Pascals To Atmospheres", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.PascalsToAtmospheres(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Pounds",Title = "Pounds To Kilograms", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.PoundsToKilograms(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Pounds",Title = "Pounds To Stones", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.PoundsToStones(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Radians",Title = "Radians Per Second To Degrees Per Second", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.RadiansPerSecondToDegreesPerSecond(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Radians",Title = "Radians Per Second To Hertz", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.RadiansPerSecondToHertz(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Radians",Title = "Radians To Degrees", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.RadiansToDegrees(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "Stones",Title = "Stones To Pounds", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.StonesToPounds(entryValue).ToString(); })},
+                                            new UnitConverter{InputText = "US Survey Feet",Title = "US Survey Feet To Meters", Command = new Command<double>((entryValue) =>{ resultText.Text = UnitConverters.USSurveyFeetToMeters(entryValue).ToString(); })},
                                         };
 
 
@@ -171,35 +165,138 @@ namespace App.CardTools.ViewModels
 
                                         optionSelected = convertersAvailable.FirstOrDefault(x => x.Title.Equals(o));
                                         optionSelectedText.Text = o;
-                                        entry.Placeholder = o;
+                                        entry.IsVisible = true;
+                                        entry.Placeholder = optionSelected.PlaceholderPresentation;
+                                        entry.Text = "";
                                     })
                                 };
 
 
                         ContentData.Add(new StackLayout
                         {
+                            Spacing = 15,
                             Padding = new Thickness(15),
                             Children =
                             {
                                 optionsButton,
-                                 optionSelectedText,
-                                        entry,
-                                        resultText
-                                //new StackLayout
-                                //{
-                                //    HorizontalOptions = LayoutOptions.CenterAndExpand,
-                                //    VerticalOptions = LayoutOptions.CenterAndExpand,
-                                //    Children =
-                                //    {
-                                       
-                                //    }
-                                //}
+                                optionSelectedText,
+                                entry,
+                                resultText
+                            }
+                        });
+                    })),
+                    DataTools.MyDeviceInfo.SetCommand(new Command(() =>
+                    {
+                        ContentData.Clear();
+
+                        ContentData.Add(new ScrollView
+                        {
+                            Content = new StackLayout
+                            {
+                                Padding = new Thickness(15),
+                                Children =
+                                {
+                                    new CustomLabel
+                                    {
+                                        Text = "Model:",
+                                        FontAttributes = FontAttributes.Bold
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Text = DeviceInfo.Model
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Margin = new Thickness(0,10,0,0),
+                                        Text = "Manufacturer:",
+                                        FontAttributes = FontAttributes.Bold
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Text = DeviceInfo.Manufacturer
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Margin = new Thickness(0,10,0,0),
+                                        Text = "Name:",
+                                        FontAttributes = FontAttributes.Bold
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Text = DeviceInfo.Name
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Margin = new Thickness(0,10,0,0),
+                                        Text = "Operating System Version:",
+                                        FontAttributes = FontAttributes.Bold
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Text = DeviceInfo.VersionString
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Margin = new Thickness(0,10,0,0),
+                                        Text = "Platform:",
+                                        FontAttributes = FontAttributes.Bold
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Text = DeviceInfo.Platform == DevicePlatform.Android ? "Android" : DeviceInfo.Platform == DevicePlatform.iOS ? "iOS" : DeviceInfo.Platform == DevicePlatform.Tizen ? "Tizen" : DeviceInfo.Platform == DevicePlatform.tvOS ? "tvOS" : "Undefined"
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Margin = new Thickness(0,10,0,0),
+                                        Text = "Display:",
+                                        FontAttributes = FontAttributes.Bold
+                                    },
+                                    new CustomLabel
+                                    {
+                                        Text = DeviceDisplay.MainDisplayInfo.ToString()
+                                    }
+                                }
+                            }
+                        });
+                    })),
+                    DataTools.SendWhatsAppMessage.SetCommand(new Command(() =>
+                    {
+                        ContentData.Clear();
+
+                        var number = new CustomEntry{ Keyboard = Keyboard.Telephone};
+                        var message = new CustomEntry{Keyboard = Keyboard.Text, Placeholder = "Hello!"};
+                        var button = new CustomFrameButton
+                        {
+                            TextButton = "Send to WhatsApp",
+                            TapButtonCommand = new Command(async () =>
+                            {
+                                await WhatsApp.SendMessage(number.Text, message.Text);
+                            })
+                        };
+
+                        ContentData.Add(new StackLayout
+                        {
+                            Padding = new Thickness(15),
+                            Children =
+                            {
+                                new CustomLabel
+                                {
+                                    Text = "Number: "
+                                
+                                },
+                                number,
+                                new CustomLabel
+                                {
+                                    Text = "Message: "
+                                },
+                                message,
+                                button
+                            
                             }
                         });
                     }))
                 };
 
-                //await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     ToolsList.Add(item);

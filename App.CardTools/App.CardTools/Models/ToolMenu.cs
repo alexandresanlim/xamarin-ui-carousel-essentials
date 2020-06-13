@@ -15,6 +15,8 @@ namespace App.CardTools.Models
         //public MenuStyle Style { get; set; }
 
         public string Icon { get; set; }
+
+        public bool IconIsBrand { get; set; }
     }
 
     public class MenuStyle

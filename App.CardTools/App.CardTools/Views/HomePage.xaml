@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:App.CardTools.ViewModels" xmlns:controls="clr-namespace:App.CardTools.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:App.CardTools.ViewModels" xmlns:controls="clr-namespace:App.CardTools.Controls" xmlns:converters="clr-namespace:App.CardTools.Converters"
              mc:Ignorable="d"
              x:Class="App.CardTools.Views.HomePage"
              Shell.NavBarIsVisible="False"
@@ -11,6 +11,12 @@
     <ContentPage.BindingContext>
         <vm:HomeViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InvertedBooleanConverter x:Key="InvertedBooleanConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
 
@@ -75,15 +81,25 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Column="0">
-      
+
                                         <Frame CornerRadius="15" Padding="18"  HeightRequest="70" WidthRequest="70" HasShadow="False" BackgroundColor="{DynamicResource secondaryColor}">
                                             <Frame.Content>
                                                 <StackLayout Spacing="0">
-                                                    <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                                    <Image IsVisible="{Binding IconIsBrand,Converter={StaticResource InvertedBooleanConverter}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                                         <Image.Source>
                                                             <FontImageSource
                                                                 Color="{DynamicResource secondaryTextColor}"
-                                                                FontFamily="{DynamicResource MaterialFontFamily}"
+                                                                FontFamily="{DynamicResource FontAwesomeSolid}"
+                                                                Size="25"
+                                                                Glyph="{Binding Icon}"
+                                                                />
+                                                        </Image.Source>
+                                                    </Image>
+                                                    <Image IsVisible="{Binding IconIsBrand}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                                        <Image.Source>
+                                                            <FontImageSource
+                                                                Color="{DynamicResource secondaryTextColor}"
+                                                                FontFamily="{DynamicResource FontAwesomeBrand}"
                                                                 Size="25"
                                                                 Glyph="{Binding Icon}"
                                                                 />

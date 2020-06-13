@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace App.CardTools.Behavior
+namespace App.CardTools.Behaviors
 {
     public class TapViewBehavior : Behavior<View>
     {

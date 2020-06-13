@@ -1,4 +1,4 @@
-﻿using App.CardTools.Behavior;
+﻿using App.CardTools.Behaviors;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,8 +16,8 @@ namespace App.CardTools.Controls
         public CustomFrameButton()
         {
             Margin = new Thickness(10, 0, 10, 5);
-            BackgroundGradientStartColor = App.Style.SecondaryDarkColor;
-            BackgroundGradientEndColor = App.Style.SecondaryColor;
+            //BackgroundGradientStartColor = App.Style.SecondaryDarkColor;
+            BackgroundColor = App.Style.SecondaryColor;
             CornerRadius = new CornerRadius(25, 0, 25, 25);
             Content = new StackLayout
             {
