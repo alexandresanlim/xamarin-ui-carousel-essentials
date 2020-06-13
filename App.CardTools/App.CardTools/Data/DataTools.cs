@@ -79,6 +79,12 @@ namespace App.CardTools.Data
             Icon = FontAwesomeSolid.Magnet
         };
 
+        public static ToolMenu BarcodeReader => new ToolMenu
+        {
+            Text = "Barcode Reader",
+            Icon = FontAwesomeSolid.Barcode
+        };
+
         public static ToolMenu SetCommand(this ToolMenu toolsMenu, Command command)
         {
             toolsMenu.Command = command;
