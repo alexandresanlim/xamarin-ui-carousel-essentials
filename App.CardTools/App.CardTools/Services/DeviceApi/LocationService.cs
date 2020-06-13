@@ -51,7 +51,7 @@ namespace App.CardTools.Services.DeviceApi
 
             var firstLocation = locations?.FirstOrDefault();
 
-            return firstLocation ?? new Placemark();
+            return firstLocation;
         }
 
         public static double CalculateDistance(double latitudeStart, double longitudeStart, double latitudeEnd, double longitudeEnd, DistanceUnits units = DistanceUnits.Kilometers)

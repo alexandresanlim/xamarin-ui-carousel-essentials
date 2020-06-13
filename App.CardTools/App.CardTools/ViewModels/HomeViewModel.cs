@@ -332,23 +332,40 @@ namespace App.CardTools.ViewModels
 
                                     if(location != null)
                                     {
-                                        result.Text = "Precision: " + precision + "\n\n";
-                                        result.Text += "Latitude: " + location.Latitude + "\n\n";
-                                        result.Text += "Latitude: " + location.Longitude + "\n\n";
+                                        result.Text = $"Precision:  {precision} \n" +
+                                                      $"Latitude:   {location.Latitude} \n" +
+                                                      $"Latitude:   {location.Longitude} \n";
 
                                         if(location.Altitude.HasValue)
-                                            result.Text += "Altitude: " + location.Altitude + "\n\n";
+                                            result.Text += "Altitude: " + location.Altitude + "\n";
 
                                         if(location.Speed.HasValue)
-                                            result.Text += "Speed in meter per secound: " + location.Speed + "\n\n";
+                                            result.Text += "Speed in meter per secound: " + location.Speed + "\n";
 
                                         if(location.Accuracy.HasValue)
-                                            result.Text += "Horizontal accuracy (meter): " + location.Accuracy + "\n\n";
+                                            result.Text += "Horizontal accuracy (meter): " + location.Accuracy + "\n";
 
                                         if(location.VerticalAccuracy.HasValue)
-                                            result.Text += "Vertical accuracy (meter): " + location.VerticalAccuracy + "\n\n";
+                                            result.Text += "Vertical accuracy (meter): " + location.VerticalAccuracy + "\n";
 
-                                        result.Text += "Timestamp: " + location.Accuracy + "\n\n";
+                                        result.Text += "Timestamp: " + location.Accuracy;
+                                    }
+
+                                    var placemark = await LocationService.GetPlacemarksAsync(location);
+
+                                    if (placemark != null)
+                                    {
+                                        result.Text += "\n\n" +
+                                            $"AdminArea:       {placemark.AdminArea}\n" +
+                                            $"CountryCode:     {placemark.CountryCode}\n" +
+                                            $"CountryName:     {placemark.CountryName}\n" +
+                                            $"FeatureName:     {placemark.FeatureName}\n" +
+                                            $"Locality:        {placemark.Locality}\n" +
+                                            $"PostalCode:      {placemark.PostalCode}\n" +
+                                            $"SubAdminArea:    {placemark.SubAdminArea}\n" +
+                                            $"SubLocality:     {placemark.SubLocality}\n" +
+                                            $"SubThoroughfare: {placemark.SubThoroughfare}\n" +
+                                            $"Thoroughfare:    {placemark.Thoroughfare}\n";
                                     }
                                 }
                                 catch (Exception)
@@ -369,13 +386,152 @@ namespace App.CardTools.ViewModels
                             Children =
                             {
                                 button,
-                                result
+                                result.SetOnScrollView()
                             }
                         }
                         .SetLoad(load);
 
                         ContentData.Add(main);
+                    })),
+                    DataTools.Magnometer.SetCommand(new Command(() =>
+                    {
+                        ContentData.Clear();
+
+                        var options = new List<string>
+                        {
+                            SensorSpeed.Default.ToString(),
+                            SensorSpeed.UI.ToString(),
+                            SensorSpeed.Fastest.ToString(),
+                            SensorSpeed.Game.ToString()
+                        };
+
+                        var result = new CustomLabel{ };
+
+                        var load = new StackLayoutLoad();
+
+                        var button = new CustomFrameButton
+                        {
+                            TextButton = "Selected Sensitivity Type",
+                            TapButtonCommand = new Command(async () =>
+                            {
+                                var precision = await App.Current.MainPage.DisplayActionSheet("Selected Sensitivity Type", "Cancel", "", options.ToArray());
+
+                                try
+                                {
+                                    load.IsVisible = true;
+
+                                    Enum.TryParse<SensorSpeed>(precision, out SensorSpeed selectedOption);
+
+                                    if (Magnetometer.IsMonitoring)
+                                        Magnetometer.Stop();
+
+                                    Magnetometer.Start(selectedOption);
+
+                                    Magnetometer.ReadingChanged += (object sender, MagnetometerChangedEventArgs e) =>
+                                    {
+                                        var data = e.Reading;
+
+                                        result.Text =
+                                            precision +" sensor Reading: \n"+
+                                            $"X:       {data.MagneticField.X}\n" +
+                                            $"Y:       {data.MagneticField.Y}\n" +
+                                            $"Z:       {data.MagneticField.Z}";
+                                    };
+                                }
+                                catch (Exception)
+                                {
+                                    throw;
+                                }
+                                finally
+                                {
+                                    load.IsVisible = false;
+                                }
+                            })
+                        };
+
+                        var main = new StackLayout
+                        {
+                            Padding = new Thickness(15),
+                            Children =
+                            {
+                                button,
+                                result
+                            }
+                        }
+                        .SetLoad(load);
+
+                        ContentData.Add(main.SetOnScrollView());
+                    })),
+                    DataTools.TextToSpeech.SetCommand(new Command(() =>
+                    {
+                        ContentData.Clear();
+
+                        var text = new CustomEditor{ VerticalOptions = LayoutOptions.FillAndExpand, Placeholder = "Enter text to speak" };
+
+                        var pitchValue = new CustomLabel { Text = "Pitch: " };
+                        var volumeValue = new CustomLabel { Text = "Volume: "};
+
+                        var pitch = new CustomSlider
+                        {
+                            Minimum = 0,
+                            Maximum = 2.0,
+                            Value = 1.0
+                        };
+
+                        pitchValue.Text += pitch.Value;
+
+                        pitch.ValueChanged += (object sender, ValueChangedEventArgs e) =>
+                        {
+                            pitchValue.Text = "Pitch: " + e.NewValue.ToString();
+                        };
+
+                        var volume = new CustomSlider
+                        {
+                            Minimum = 0,
+                            Maximum = 1.0,
+                            Value = 0.5
+                        };
+
+                        volumeValue.Text += volume.Value;
+
+                        volume.ValueChanged += (object sender, ValueChangedEventArgs e) =>
+                        {
+                            volumeValue.Text = "Volume: " + e.NewValue.ToString();
+                        };
+
+                        var button = new CustomFrameButton
+                        {
+                            VerticalOptions = LayoutOptions.EndAndExpand,
+                            TextButton = "Speak",
+                            TapButtonCommand = new Command(async () =>
+                            {
+                                if(string.IsNullOrEmpty(text?.Text))
+                                    return;
+
+                                await TextToSpeech.SpeakAsync(text.Text, new SpeechOptions
+                                {
+                                    Pitch = float.Parse(pitch.Value.ToString()),
+                                    Volume = float.Parse(volume.Value.ToString())
+                                });
+                            })
+                        };
+
+                        ContentData.Add(new StackLayout
+                        {
+                            VerticalOptions = LayoutOptions.FillAndExpand,
+                            Padding = new Thickness(15),
+                            Children =
+                            {
+                                text,
+                                pitchValue,
+                                pitch,
+                                volumeValue,
+                                volume,
+                                button
+                            }
+                        });
                     }))
+
                 };
 
                 foreach (var item in items)

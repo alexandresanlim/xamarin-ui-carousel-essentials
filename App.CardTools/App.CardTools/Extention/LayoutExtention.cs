@@ -20,6 +20,16 @@ namespace App.CardTools.Extention
                 }
             };
         }
+
+        public static ScrollView SetOnScrollView(this View content)
+        {
+            return new ScrollView
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Content = content
+            };
+        }
     }
 
     public class StackLayoutLoad : StackLayout

@@ -42,7 +42,7 @@ namespace App.CardTools.Data
         {
             Text = "Text to speech",
             //Style = MenuStyle.GetCombination(),
-            //Icon = FontAwesomeSolid.Wifi,
+            Icon = FontAwesomeSolid.Music,
         };
 
         public static ToolMenu UnitConveter => new ToolMenu
@@ -71,6 +71,12 @@ namespace App.CardTools.Data
         {
             Text = "My Geolocation",
             Icon = FontAwesomeSolid.MapMarkedAlt
+        };
+
+        public static ToolMenu Magnometer => new ToolMenu
+        {
+            Text = "Magnometer",
+            Icon = FontAwesomeSolid.Magnet
         };
 
         public static ToolMenu SetCommand(this ToolMenu toolsMenu, Command command)

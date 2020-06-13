@@ -12,7 +12,7 @@ namespace App.CardTools.Controls
             IsRunning = true;
             VerticalOptions = LayoutOptions.CenterAndExpand;
             HorizontalOptions = LayoutOptions.CenterAndExpand;
-            Color = App.Style.PrimaryColor;
+            Color = App.Style.SecondaryColor;
         }
     }
 }
