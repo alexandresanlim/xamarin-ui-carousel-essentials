@@ -2,6 +2,25 @@
 
 App cards, onde o usuário pode personalizar seus cards, 
 
+# Nome
+AppCards.TK ToCards 4Your Cards
+Tools
+Tookit
+Mineapp
+Essentials App
+Libre tk
+essential4.me
+cacai.me
+esteta.me
+motiro.me
+vogelfrei.me (libre como um passaro)
+ttool.me
+1tool.me
+
+# Ideias
+
+- Um espaço para chamar uma função por gestos.
+
 ex: 
 - Lanterna
 - Um numero randomico
