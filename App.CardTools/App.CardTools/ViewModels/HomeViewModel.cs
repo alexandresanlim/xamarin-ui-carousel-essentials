@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using System.Linq;
+using App.CardTools.Services.DeviceApi;
 
 namespace App.CardTools.ViewModels
 {
@@ -282,7 +283,7 @@ namespace App.CardTools.ViewModels
                                 new CustomLabel
                                 {
                                     Text = "Number: "
-                                
+
                                 },
                                 number,
                                 new CustomLabel
@@ -291,7 +292,73 @@ namespace App.CardTools.ViewModels
                                 },
                                 message,
                                 button
-                            
+
+                            }
+                        });
+                    })),
+                    DataTools.MyGeolocation.SetCommand(new Command(() =>
+                    {
+                        ContentData.Clear();
+
+                        var options = new List<string>
+                        {
+                            GeolocationAccuracy.Default.ToString(),
+                            GeolocationAccuracy.Lowest.ToString(),
+                            GeolocationAccuracy.Low.ToString(),
+                            GeolocationAccuracy.Medium.ToString(),
+                            GeolocationAccuracy.High.ToString(),
+                            GeolocationAccuracy.Best.ToString(),
+                        };
+
+                        //GeolocationAccuracy selectedOption = GeolocationAccuracy.Default;
+
+                        var result = new CustomLabel{ FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center};
+
+                        var button = new CustomFrameButton
+                        {
+                            TextButton = "Selected Precision",
+                            TapButtonCommand = new Command(async () =>
+                            {
+                                var precision = await App.Current.MainPage.DisplayActionSheet("Selected Precision", "Cancel", "", options.ToArray());
+                                Enum.TryParse<GeolocationAccuracy>(precision, out GeolocationAccuracy selectedOption);
+                                //selectedOption = result;
+
+                                var location = await LocationService.GetLastLocationAsync(selectedOption);
+
+                                if(location != null)
+                                {
+                                    result.Text = "Precision: " + precision + "\n\n";
+                                    result.Text += "Latitude: " + location.Latitude + "\n\n";
+                                    result.Text += "Latitude: " + location.Longitude + "\n\n";
+
+                                    if(location.Altitude.HasValue)
+                                        result.Text += "Altitude: " + location.Altitude + "\n\n";
+
+                                    if(location.Speed.HasValue)
+                                        result.Text += "Speed in meter per secound: " + location.Speed + "\n\n";
+
+                                    if(location.Accuracy.HasValue)
+                                        result.Text += "Horizontal accuracy (meter): " + location.Accuracy + "\n\n";
+
+                                    if(location.VerticalAccuracy.HasValue)
+                                        result.Text += "Vertical accuracy (meter): " + location.VerticalAccuracy + "\n\n";
+
+                                    result.Text += "Timestamp: " + location.Accuracy + "\n\n";
+                                }
+                            })
+                        };
+
+                        //var location = LocationService.GetLastLocationAsync(GeolocationAccuracy)
+
+                        
+
+                        ContentData.Add(new StackLayout
+                        {
+                            Padding = new Thickness(15),
+                            Children =
+                            {
+                                button,
+                                result
                             }
                         });
                     }))

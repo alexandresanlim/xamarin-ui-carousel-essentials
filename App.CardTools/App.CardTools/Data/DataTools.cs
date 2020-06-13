@@ -67,6 +67,12 @@ namespace App.CardTools.Data
             Icon = FontAwesomeSolid.MobileAlt
         };
 
+        public static ToolMenu MyGeolocation => new ToolMenu
+        {
+            Text = "My Geolocation",
+            Icon = FontAwesomeSolid.MapMarkedAlt
+        };
+
         public static ToolMenu SetCommand(this ToolMenu toolsMenu, Command command)
         {
             toolsMenu.Command = command;
