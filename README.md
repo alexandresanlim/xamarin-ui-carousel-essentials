@@ -48,6 +48,8 @@ ex:
 - Meu Ip (https://ip-api.com/)
 - Letra de musica (https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search?console=1)
 - Gerar um avatar (https://api.adorable.io/avatars/53) ou (https://avatars.dicebear.com/)
+- NetFlix Api
+- Spotfy Api
 
 #### A config para ver os caras pode ser um json da pra colorir os cards com flat color,
 
