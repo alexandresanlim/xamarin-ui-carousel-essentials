@@ -9,7 +9,7 @@ namespace App.CardTools.Controls
     {
         public CustomLabel()
         {
-            TextColor = App.Style.SecondaryTextColor;
+            TextColor = App.ThemeColors.TextOnLightThemePrimary;
         }
     }
 }

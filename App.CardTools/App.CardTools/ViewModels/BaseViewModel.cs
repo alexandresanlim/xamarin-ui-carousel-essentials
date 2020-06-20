@@ -32,6 +32,23 @@ namespace App.CardTools.ViewModels
             set { SetProperty(ref title, value); }
         }
 
+        #region Navigations
+
+        public async Task NavigateToPage(Page page)
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(page);
+        }
+
+        public async Task NavigateToModal(Page page)
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(page);
+        }
+
+        #endregion
+
+
+        #region Alerts
+
         public async Task DisplayAlert(string message, string title = "", string cancel = "Cancelar")
         {
             await Application.Current.MainPage.DisplayAlert(title, message, cancel);
@@ -47,6 +64,10 @@ namespace App.CardTools.ViewModels
             return await Application.Current.MainPage.DisplayActionSheet(title, cancel, "", options.ToArray());
         }
 
+        #endregion
+
+        #region INotifyPropertyChanged
+
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
@@ -60,7 +81,6 @@ namespace App.CardTools.ViewModels
             return true;
         }
 
-        #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {

@@ -10,9 +10,9 @@ namespace App.CardTools.Controls
         public CustomEntry()
         {
             //BackgroundColor = Color.Red;
-            TextColor = App.Style.SecondaryTextColor;
+            TextColor = App.ThemeColors.TextOnPrimary;
             ClearButtonVisibility = ClearButtonVisibility.WhileEditing;
-            BackgroundColor = App.Style.PrimaryColor;
+            BackgroundColor = App.ThemeColors.Primary;
             //PlaceholderColor = App.Style.SecondaryTextColor;
 
         }

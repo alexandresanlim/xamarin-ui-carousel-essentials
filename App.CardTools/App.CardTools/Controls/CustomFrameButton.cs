@@ -17,7 +17,7 @@ namespace App.CardTools.Controls
         {
             Margin = new Thickness(0, 5);
             //BackgroundGradientStartColor = App.Style.SecondaryDarkColor;
-            BackgroundColor = App.Style.SecondaryColor;
+            BackgroundColor = App.ThemeColors.Secondary;
             CornerRadius = new CornerRadius(25, 0, 25, 25);
             Content = new StackLayout
             {
@@ -33,7 +33,7 @@ namespace App.CardTools.Controls
 
         private CustomLabel AddText()
         {
-            TexButtonValue = new CustomLabel() { HorizontalOptions = LayoutOptions.CenterAndExpand, FontAttributes = FontAttributes.Bold };
+            TexButtonValue = new CustomLabel() { HorizontalOptions = LayoutOptions.CenterAndExpand, FontAttributes = FontAttributes.Bold, TextColor = App.ThemeColors.TextOnSecondary };
 
             return TexButtonValue;
         }

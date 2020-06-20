@@ -9,8 +9,8 @@ namespace App.CardTools.Controls
     {
         public CustomSlider()
         {
-            ThumbColor = App.Style.SecondaryColor;
-            MinimumTrackColor = App.Style.SecondaryColor;
+            ThumbColor = App.ThemeColors.Secondary;
+            MinimumTrackColor = App.ThemeColors.Secondary;
         }
     }
 }

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:App.CardTools.ViewModels" xmlns:controls="clr-namespace:App.CardTools.Controls" xmlns:converters="clr-namespace:App.CardTools.Converters"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:App.CardTools.ViewModels" xmlns:controls="clr-namespace:App.CardTools.Controls" xmlns:converters="clr-namespace:App.CardTools.Converters" xmlns:behaviors="clr-namespace:App.CardTools.Behaviors"
              mc:Ignorable="d"
              x:Class="App.CardTools.Views.HomePage"
              Shell.NavBarIsVisible="False"
@@ -74,10 +74,16 @@
                             <FontImageSource
                                         Color="{DynamicResource secondaryTextColor}"
                                         FontFamily="{DynamicResource FontAwesomeSolid}"
-                                        Size="25"
+                                        Size="40"
                                         Glyph="&#xf013;"
                                         />
                         </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToPreferenceCommand}" />
+                        </Image.GestureRecognizers>
+                        <!--<Image.Behaviors>
+                            <behaviors:TapViewBehavior Command="{Binding NavigateToPreferenceCommand}" />
+                        </Image.Behaviors>-->
                     </Image>
 
                     <controls:CustomCollectionView Margin="15,0,0,0" SelectionMode="Single" ItemsSource="{Binding ToolsList}" SelectedItem="{Binding CurrentSelectedTool}" SelectionChangedCommand="{Binding ChangeSelectToolCommand}">

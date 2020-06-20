@@ -15,6 +15,8 @@ using System.Linq;
 using App.CardTools.Services.DeviceApi;
 using App.CardTools.Extention;
 using ZXing.Mobile;
+using App.CardTools.Views;
+using Xamarin.Forms.Xaml;
 
 namespace App.CardTools.ViewModels
 {
@@ -32,7 +34,8 @@ namespace App.CardTools.ViewModels
             ToolsList = new ObservableCollection<ToolMenu>();
             CurrentSelectedTool = new ToolMenu();
             ContentData = new ObservableCollection<View>();
-            CurrentStylePage = MenuStyle.GetCombination();
+
+            App.LoadTheme();
         }
 
         public Command LoadItemsCommand => new Command(() =>
@@ -598,17 +601,19 @@ namespace App.CardTools.ViewModels
 
         public Command ChangeSelectToolCommand => new Command(() =>
         {
-            CurrentStylePage = MenuStyle.GetCombination();
+            //CurrentStylePage = MenuStyle.GetCombination();
 
-            App.Current.Resources["primaryColor"] = CurrentStylePage.PrimaryColor;
-            App.Current.Resources["secondaryColor"] = CurrentStylePage.SecondaryColor;
-            App.Current.Resources["primaryDarkColor"] = CurrentStylePage.PrimaryDarkColor;
-            App.Current.Resources["secondaryDarkColor"] = CurrentStylePage.SecondaryDarkColor;
-            App.Current.Resources["primaryTextColor"] = CurrentStylePage.PrimaryTextColor;
-            App.Current.Resources["secondaryTextColor"] = CurrentStylePage.SecondaryTextColor;
+            //App.Current.Resources["primaryColor"] = CurrentStylePage.PrimaryColor;
+            //App.Current.Resources["secondaryColor"] = CurrentStylePage.SecondaryColor;
+            //App.Current.Resources["primaryDarkColor"] = CurrentStylePage.PrimaryDarkColor;
+            //App.Current.Resources["secondaryDarkColor"] = CurrentStylePage.SecondaryDarkColor;
+            //App.Current.Resources["primaryTextColor"] = CurrentStylePage.PrimaryTextColor;
+            //App.Current.Resources["secondaryTextColor"] = CurrentStylePage.SecondaryTextColor;
 
-            var service = DependencyService.Get<IStatusBar>();
-            service?.SetStatusBarColor(CurrentStylePage.PrimaryDarkColor);
+            //var service = DependencyService.Get<IStatusBar>();
+            //service?.SetStatusBarColor(CurrentStylePage.PrimaryDarkColor);
+
+            App.LoadTheme();
 
 
             if (CurrentSelectedTool.Command != null)
@@ -617,13 +622,10 @@ namespace App.CardTools.ViewModels
             }
         });
 
-
-        private MenuStyle _currentStylePage;
-        public MenuStyle CurrentStylePage
+        public Command NavigateToPreferenceCommand => new Command(async () =>
         {
-            set { SetProperty(ref _currentStylePage, value); }
-            get { return _currentStylePage; }
-        }
+            await NavigateToModal(new PreferencePage());
+        });
 
         private ObservableCollection<View> _contentData;
         public ObservableCollection<View> ContentData
