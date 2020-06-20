@@ -35,9 +35,12 @@
         <Tab Title="Home">
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
         </Tab>
-        <Tab Title="Browse" Icon="tab_feed.png">
+        <!--<Tab Title="Settings" Icon="tab_about.png">
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+        </Tab>-->
+        <!--<Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
-        </Tab>
+        </Tab>-->
         <Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>

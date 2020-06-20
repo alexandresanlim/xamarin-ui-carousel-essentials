@@ -22,15 +22,15 @@
 
         <Grid BackgroundColor="{DynamicResource secondaryColor}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.4*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!--Tools List-->
-            <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDarkColor}" BackgroundGradientEndColor="{DynamicResource primaryColor}" Grid.Row="0" CornerRadius="0,0,80,0">
+            <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDarkColor}" BackgroundGradientEndColor="{DynamicResource primaryColor}" Grid.Row="0" CornerRadius="0,0,50,0">
 
                 <StackLayout>
-                    <StackLayout Margin="15,20" Spacing="0">
+                    <!--<StackLayout Margin="15,20" Spacing="0">
 
                         <Grid ColumnSpacing="10">
                             <Grid.RowDefinitions>
@@ -67,9 +67,20 @@
                         </Grid>
 
 
-                    </StackLayout>
+                    </StackLayout>-->
 
-                    <controls:CustomCollectionView Margin="30,0,0,0" SelectionMode="Single" ItemsSource="{Binding ToolsList}" SelectedItem="{Binding CurrentSelectedTool}" SelectionChangedCommand="{Binding ChangeSelectToolCommand}">
+                    <Image HorizontalOptions="End" Margin="10,15">
+                        <Image.Source>
+                            <FontImageSource
+                                        Color="{DynamicResource secondaryTextColor}"
+                                        FontFamily="{DynamicResource FontAwesomeSolid}"
+                                        Size="25"
+                                        Glyph="&#xf013;"
+                                        />
+                        </Image.Source>
+                    </Image>
+
+                    <controls:CustomCollectionView Margin="15,0,0,0" SelectionMode="Single" ItemsSource="{Binding ToolsList}" SelectedItem="{Binding CurrentSelectedTool}" SelectionChangedCommand="{Binding ChangeSelectToolCommand}">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Horizontal"/>
                         </CollectionView.ItemsLayout>

@@ -10,6 +10,7 @@ using App.CardTools.Services;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using App.CardTools.Services.DeviceApi;
+using System.Linq;
 
 namespace App.CardTools.ViewModels
 {
@@ -29,6 +30,21 @@ namespace App.CardTools.ViewModels
         {
             get { return title; }
             set { SetProperty(ref title, value); }
+        }
+
+        public async Task DisplayAlert(string message, string title = "", string cancel = "Cancelar")
+        {
+            await Application.Current.MainPage.DisplayAlert(title, message, cancel);
+        }
+
+        public async Task<bool> DisplayAlert(string message, string title = "", string accept = "Aceitar", string cancel = "Cancelar")
+        {
+            return await Application.Current.MainPage.DisplayAlert(title, message, accept, cancel);
+        }
+
+        public async Task<string> DisplayActionSheet(string title, string cancel, IEnumerable<string> options)
+        {
+            return await Application.Current.MainPage.DisplayActionSheet(title, cancel, "", options.ToArray());
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

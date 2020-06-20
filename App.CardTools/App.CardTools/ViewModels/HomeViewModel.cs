@@ -598,10 +598,7 @@ namespace App.CardTools.ViewModels
 
         public Command ChangeSelectToolCommand => new Command(() =>
         {
-
             CurrentStylePage = MenuStyle.GetCombination();
-
-
 
             App.Current.Resources["primaryColor"] = CurrentStylePage.PrimaryColor;
             App.Current.Resources["secondaryColor"] = CurrentStylePage.SecondaryColor;

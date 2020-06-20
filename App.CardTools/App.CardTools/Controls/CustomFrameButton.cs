@@ -26,10 +26,6 @@ namespace App.CardTools.Controls
                 Children =
                 {
                     AddText(),
-                    //new CustomImageIcon(FontAwesomeSolid.ChevronRight, IconColor.OnAccentColor)
-                    //{
-                    //    VerticalOptions = LayoutOptions.CenterAndExpand
-                    //}
                 }
             };
             Behaviors.Add(AddTapBehavior());

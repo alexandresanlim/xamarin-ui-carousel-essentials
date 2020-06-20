@@ -9,18 +9,12 @@ namespace App.CardTools.Services.DeviceApi
 {
     public abstract class LocationService
     {
-        //public static Core.Data.DataModels.Address CurrentAddress { get; set; }
-
         public static async Task<Location> GetLastLocationAsync(GeolocationAccuracy geolocationAccuracy = GeolocationAccuracy.Medium, TimeSpan? timeOutParameter = null)
         {
             var location = new Location();
 
             var timeOut = timeOutParameter ?? new TimeSpan(0, 0, 15);
 
-            //var hasPermission = await PermissionService.CheckPermission(Plugin.Permissions.Abstractions.Permission.Location);
-
-            //if (hasPermission)
-            //{
 
             await PermissionService.RequirePermissionToExecute(async () =>
             {
@@ -31,7 +25,6 @@ namespace App.CardTools.Services.DeviceApi
                     await Geolocation.GetLastKnownLocationAsync();
 
             }, new Permissions.LocationWhenInUse());
-            //}
 
             return location;
         }
