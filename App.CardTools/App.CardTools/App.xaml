@@ -7,14 +7,16 @@
              x:Class="App.CardTools.App">
     
     <Application.Resources>
-        <Color x:Key="primaryColor">#4ac7cb</Color>
-        <Color x:Key="primaryLightColor">#83fafe</Color>
-        <Color x:Key="primaryDarkColor">#00969a</Color>
-        <Color x:Key="secondaryColor">#6b1230</Color>
-        <Color x:Key="secondaryLightColor">#9d4259</Color>
-        <Color x:Key="secondaryDarkColor">#3c0006</Color>
-        <Color x:Key="primaryTextColor">#000000</Color>
-        <Color x:Key="secondaryTextColor">#ffffff</Color>
+        <Color x:Key="primary">#4ac7cb</Color>
+        <Color x:Key="primaryLight">#83fafe</Color>
+        <Color x:Key="primaryDark">#00969a</Color>
+        
+        <Color x:Key="secondary">#6b1230</Color>
+        <Color x:Key="secondaryLight">#9d4259</Color>
+        <Color x:Key="secondaryDark">#3c0006</Color>
+        
+        <Color x:Key="textOnPrimary">#000000</Color>
+        <Color x:Key="textOnSecondary">#ffffff</Color>
 
         <OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
             <On Platform="iOS" Value="Font Awesome 5 Free" />

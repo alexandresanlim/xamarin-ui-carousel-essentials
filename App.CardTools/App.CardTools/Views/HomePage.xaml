@@ -20,14 +20,14 @@
 
     <ContentPage.Content>
 
-        <Grid BackgroundColor="{DynamicResource secondaryColor}">
+        <Grid BackgroundColor="{DynamicResource secondary}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.4*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!--Tools List-->
-            <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDarkColor}" BackgroundGradientEndColor="{DynamicResource primaryColor}" Grid.Row="0" CornerRadius="0,0,50,0">
+            <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDark}" BackgroundGradientEndColor="{DynamicResource primary}" Grid.Row="0" CornerRadius="0,0,50,0">
 
                 <StackLayout>
                     <!--<StackLayout Margin="15,20" Spacing="0">
@@ -72,9 +72,9 @@
                     <Image HorizontalOptions="End" Margin="10,15">
                         <Image.Source>
                             <FontImageSource
-                                        Color="{DynamicResource secondaryTextColor}"
+                                        Color="{DynamicResource textOnPrimary}"
                                         FontFamily="{DynamicResource FontAwesomeSolid}"
-                                        Size="40"
+                                        Size="30"
                                         Glyph="&#xf013;"
                                         />
                         </Image.Source>
@@ -99,13 +99,13 @@
 
                                     <StackLayout Grid.Column="0">
 
-                                        <Frame CornerRadius="15" Padding="18"  HeightRequest="70" WidthRequest="70" HasShadow="False" BackgroundColor="{DynamicResource secondaryColor}">
+                                        <Frame CornerRadius="15" Padding="18"  HeightRequest="70" WidthRequest="70" HasShadow="False" BackgroundColor="{DynamicResource secondary}">
                                             <Frame.Content>
                                                 <StackLayout Spacing="0">
                                                     <Image IsVisible="{Binding IconIsBrand,Converter={StaticResource InvertedBooleanConverter}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                                         <Image.Source>
                                                             <FontImageSource
-                                                                Color="{DynamicResource secondaryTextColor}"
+                                                                Color="{DynamicResource textOnSecondary}"
                                                                 FontFamily="{DynamicResource FontAwesomeSolid}"
                                                                 Size="25"
                                                                 Glyph="{Binding Icon}"
@@ -115,14 +115,14 @@
                                                     <Image IsVisible="{Binding IconIsBrand}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                                         <Image.Source>
                                                             <FontImageSource
-                                                                Color="{DynamicResource secondaryTextColor}"
+                                                                Color="{DynamicResource textOnSecondary}"
                                                                 FontFamily="{DynamicResource FontAwesomeBrand}"
                                                                 Size="25"
                                                                 Glyph="{Binding Icon}"
                                                                 />
                                                         </Image.Source>
                                                     </Image>
-                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource secondaryTextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource textOnSecondary}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
 
                                                     <!--<Label Text="{Binding Description}" FontSize="Body" TextColor="{StaticResource OnPrimaryColor}" HorizontalOptions="Center" VerticalOptions="End" />-->
                                                 </StackLayout>
@@ -140,7 +140,7 @@
 
             <!--Body-->
 
-            <controls:CustomFrame Grid.Row="1" BackgroundGradientStartColor="{DynamicResource primaryDarkColor}" BackgroundGradientEndColor="{DynamicResource primaryColor}" Margin="20" CornerRadius="15">
+            <controls:CustomFrame Grid.Row="1" BackgroundGradientStartColor="{DynamicResource primaryDark}" BackgroundGradientEndColor="{DynamicResource primary}" Margin="20" CornerRadius="15">
 
 
                 <controls:StackLayoutBindable Items="{Binding ContentData}"></controls:StackLayoutBindable>

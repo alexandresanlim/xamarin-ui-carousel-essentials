@@ -17,6 +17,7 @@ using App.CardTools.Extention;
 using ZXing.Mobile;
 using App.CardTools.Views;
 using Xamarin.Forms.Xaml;
+using App.CardTools.Models._2___Layout;
 
 namespace App.CardTools.ViewModels
 {
@@ -24,6 +25,10 @@ namespace App.CardTools.ViewModels
     {
         public HomeViewModel()
         {
+            var preferenceTheme = MaterialColor.NiceCombinationList.FirstOrDefault(x => x.Name.Equals(PreferenceService.ThemePreference));
+
+            App.LoadTheme(preferenceTheme);
+
             ResetProps();
 
             LoadItemsCommand.Execute(null);
@@ -34,8 +39,6 @@ namespace App.CardTools.ViewModels
             ToolsList = new ObservableCollection<ToolMenu>();
             CurrentSelectedTool = new ToolMenu();
             ContentData = new ObservableCollection<View>();
-
-            App.LoadTheme();
         }
 
         public Command LoadItemsCommand => new Command(() =>
@@ -600,22 +603,7 @@ namespace App.CardTools.ViewModels
         });
 
         public Command ChangeSelectToolCommand => new Command(() =>
-        {
-            //CurrentStylePage = MenuStyle.GetCombination();
-
-            //App.Current.Resources["primaryColor"] = CurrentStylePage.PrimaryColor;
-            //App.Current.Resources["secondaryColor"] = CurrentStylePage.SecondaryColor;
-            //App.Current.Resources["primaryDarkColor"] = CurrentStylePage.PrimaryDarkColor;
-            //App.Current.Resources["secondaryDarkColor"] = CurrentStylePage.SecondaryDarkColor;
-            //App.Current.Resources["primaryTextColor"] = CurrentStylePage.PrimaryTextColor;
-            //App.Current.Resources["secondaryTextColor"] = CurrentStylePage.SecondaryTextColor;
-
-            //var service = DependencyService.Get<IStatusBar>();
-            //service?.SetStatusBarColor(CurrentStylePage.PrimaryDarkColor);
-
-            App.LoadTheme();
-
-
+        { 
             if (CurrentSelectedTool.Command != null)
             {
                 CurrentSelectedTool.Command.Execute(CurrentSelectedTool.CommandParameter);

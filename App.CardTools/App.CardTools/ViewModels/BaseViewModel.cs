@@ -44,6 +44,16 @@ namespace App.CardTools.ViewModels
             await Application.Current.MainPage.Navigation.PushModalAsync(page);
         }
 
+        public Command CloseModalCommand => new Command(async () =>
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        });
+
+        //public async Task CloseModalCommand = new Command(async () =>
+        //{
+        //    await Application.Current.MainPage.Navigation.PopModalAsync();
+        //});
+
         #endregion
 
 

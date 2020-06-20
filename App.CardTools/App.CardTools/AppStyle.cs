@@ -11,22 +11,16 @@ namespace App.CardTools
     public partial class App
     {
 
-        public static void LoadTheme()
+        public static void LoadTheme(MaterialColor theme = null)
         {
-            MaterialColor.SetOnCurrentResourceThemeColor();
+           
+            MaterialColor.SetOnCurrentResourceThemeColor(theme);
+
 
             var service = DependencyService.Get<IStatusBar>();
             service?.SetStatusBarColor(ThemeColors.PrimaryDark);
         }
 
-        public static MaterialColor ThemeColors => new MaterialColor
-        {
-            Primary = (Color)App.Current.Resources["primaryColor"],
-            Secondary = (Color)App.Current.Resources["secondaryColor"],
-            PrimaryDark = (Color)App.Current.Resources["primaryDarkColor"],
-            SecondaryDark = (Color)App.Current.Resources["secondaryDarkColor"],
-            TextOnPrimary = (Color)App.Current.Resources["primaryTextColor"],
-            TextOnSecondary = (Color)App.Current.Resources["secondaryTextColor"],
-        };
+        public static MaterialColor ThemeColors => MaterialColor.GetByCurrentResourceThemeColor();
     }
 }

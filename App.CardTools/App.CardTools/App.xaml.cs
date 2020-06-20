@@ -26,6 +26,8 @@ namespace App.CardTools
                 DependencyService.Register<AzureDataStore>();
 
             MainPage = new AppShell();
+
+            //App.LoadTheme();
         }
 
         protected override void OnStart()

@@ -16,12 +16,12 @@
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#00969a</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource primaryDarkColor}" />
+                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource primaryDark}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource primaryDarkColor}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource primaryDark}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
