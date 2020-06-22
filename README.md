@@ -80,3 +80,5 @@ https://github.com/bbartels/Delve
 https://github.com/vespassassina/.NET-Instagram-API-Wrapper
 
 https://github.com/tmenier/Flurl
+
+https://github.com/reactiveui/refit
