@@ -3,6 +3,7 @@
 App cards, onde o usuário pode personalizar seus cards, 
 
 # Nome
+https://blog.verslu.is/xamarin/xamarin-forms-xamarin/google-chromecast-app/?utm_source=rss&utm_medium=rss&utm_campaign=google-chromecast-app
 AppCards.TK ToCards 4Your Cards
 Tools
 Tookit
