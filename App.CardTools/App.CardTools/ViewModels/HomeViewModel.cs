@@ -48,6 +48,7 @@ namespace App.CardTools.ViewModels
                 IsBusy = true;
 
 
+
                 var items = new List<ToolMenu>()
                 {
                     DataTools.Connection.SetCommand(new Command(() =>
@@ -62,6 +63,8 @@ namespace App.CardTools.ViewModels
                     DataTools.FlashLight.SetCommand(new Command(() =>
                     {
                         ContentData.Clear();
+
+                        
 
                         bool flashOn = false;
 
