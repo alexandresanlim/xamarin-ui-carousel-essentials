@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\AudioService.cs" />
     <Compile Include="Services\QrCodeScanningService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
@@ -155,5 +156,8 @@
       <Project>{E2E62392-FB30-4008-A47B-CF3FD01908C1}</Project>
       <Name>App.CardTools</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\listchange.mp3" />
   </ItemGroup>
 </Project>

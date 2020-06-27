@@ -602,12 +602,23 @@ namespace App.CardTools.ViewModels
             }
         });
 
-        public Command ChangeSelectToolCommand => new Command(() =>
+        public Command ChangeSelectToolCommand => new Command(async () =>
         { 
             if (CurrentSelectedTool.Command != null)
             {
-                CurrentSelectedTool.Command.Execute(CurrentSelectedTool.CommandParameter);
+                await Xamarin.Essentials.MainThread.InvokeOnMainThreadAsync(() =>
+                {
+                    //DependencyService.Get<IAudio>().PlayAudioFile("listchange.mp3");
+
+                    CurrentSelectedTool.Command.Execute(CurrentSelectedTool.CommandParameter);
+
+                    
+                });
+
+                
             }
+
+            
 
             //var preferenceTheme = MaterialColor.NiceCombinationList.PickRandom();
 
