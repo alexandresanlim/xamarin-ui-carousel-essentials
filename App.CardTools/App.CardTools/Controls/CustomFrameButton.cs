@@ -15,7 +15,7 @@ namespace App.CardTools.Controls
 
         public CustomFrameButton()
         {
-            Margin = new Thickness(0, 5);
+            //Margin = new Thickness(0, 5);
             //BackgroundGradientStartColor = App.Style.SecondaryDarkColor;
             BackgroundColor = App.ThemeColors.Secondary;
             CornerRadius = new CornerRadius(25, 0, 25, 25);

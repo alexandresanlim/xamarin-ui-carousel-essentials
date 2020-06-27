@@ -20,17 +20,19 @@
 
     <ContentPage.Content>
 
-        <Grid BackgroundColor="{DynamicResource secondary}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.4*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDark}" BackgroundGradientEndColor="{DynamicResource primary}">
 
-            <!--Tools List-->
-            <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDark}" BackgroundGradientEndColor="{DynamicResource primary}" Grid.Row="0" CornerRadius="0,0,50,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                <StackLayout>
-                    <!--<StackLayout Margin="15,20" Spacing="0">
+                <!--Tools List-->
+
+
+                <StackLayout Grid.Row="0">
+                        <!--<StackLayout Margin="15,20" Spacing="0">
 
                         <Grid ColumnSpacing="10">
                             <Grid.RowDefinitions>
@@ -69,90 +71,109 @@
 
                     </StackLayout>-->
 
-                    <Image HorizontalOptions="End" Margin="10,15">
-                        <Image.Source>
-                            <FontImageSource
+                        <Image HorizontalOptions="End" Margin="10,15">
+                            <Image.Source>
+                                <FontImageSource
                                         Color="{DynamicResource textOnPrimary}"
                                         FontFamily="{DynamicResource FontAwesomeSolid}"
                                         Size="30"
                                         Glyph="&#xf013;"
                                         />
-                        </Image.Source>
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToPreferenceCommand}" />
-                        </Image.GestureRecognizers>
-                        <!--<Image.Behaviors>
-                            <behaviors:TapViewBehavior Command="{Binding NavigateToPreferenceCommand}" />
-                        </Image.Behaviors>-->
-                    </Image>
+                            </Image.Source>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateToPreferenceCommand}" />
+                            </Image.GestureRecognizers>
+                        </Image>
 
-                    <controls:CustomCollectionView Margin="15,0,0,0" SelectionMode="Single" ItemsSource="{Binding ToolsList}" SelectedItem="{Binding CurrentSelectedTool}" SelectionChangedCommand="{Binding ChangeSelectToolCommand}">
-                        <CollectionView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Horizontal"/>
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="5">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
+                        <controls:CustomCarouselView
+                        PeekAreaInsets="40,0"
+                        ItemsSource="{Binding ToolsList}"
+                         IsScrollAnimated="True"
+                         Scrolled="CustomCarouselView_Scrolled"
+                        CurrentItemChangedCommand="{Binding ChangeSelectToolCommand}"
+                     CurrentItem="{Binding CurrentSelectedTool}"
+                        >
 
-                                    <StackLayout Grid.Column="0">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <!--<controls:CustomFrame CornerRadius="15,0,15,15" BackgroundGradientStartColor="{DynamicResource secondaryDark}" BackgroundGradientEndColor="{DynamicResource secondary}" Padding="5">-->
 
-                                        <Frame CornerRadius="15" Padding="18"  HeightRequest="70" WidthRequest="70" HasShadow="False" BackgroundColor="{DynamicResource secondary}">
-                                            <Frame.Content>
-                                                <StackLayout Spacing="0">
-                                                    <Image IsVisible="{Binding IconIsBrand,Converter={StaticResource InvertedBooleanConverter}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                                        <Image.Source>
-                                                            <FontImageSource
+                                    <StackLayout>
+                                        <controls:CustomFrame CornerRadius="15,0,15,15" Margin="10" Padding="15" HeightRequest="70" BackgroundColor="{DynamicResource secondary}" >
+
+                                            <StackLayout Spacing="0">
+                                                <Image IsVisible="{Binding IconIsBrand,Converter={StaticResource InvertedBooleanConverter}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                                    <Image.Source>
+                                                        <FontImageSource
                                                                 Color="{DynamicResource textOnSecondary}"
                                                                 FontFamily="{DynamicResource FontAwesomeSolid}"
                                                                 Size="25"
                                                                 Glyph="{Binding Icon}"
                                                                 />
-                                                        </Image.Source>
-                                                    </Image>
-                                                    <Image IsVisible="{Binding IconIsBrand}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                                        <Image.Source>
-                                                            <FontImageSource
+                                                    </Image.Source>
+                                                </Image>
+                                                <Image IsVisible="{Binding IconIsBrand}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                                    <Image.Source>
+                                                        <FontImageSource
                                                                 Color="{DynamicResource textOnSecondary}"
                                                                 FontFamily="{DynamicResource FontAwesomeBrand}"
                                                                 Size="25"
                                                                 Glyph="{Binding Icon}"
                                                                 />
-                                                        </Image.Source>
-                                                    </Image>
-                                                    <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource textOnSecondary}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                    </Image.Source>
+                                                </Image>
+                                                <Label Text="{Binding Text}" MaxLines="2" LineBreakMode="TailTruncation" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource textOnSecondary}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
 
-                                                    <!--<Label Text="{Binding Description}" FontSize="Body" TextColor="{StaticResource OnPrimaryColor}" HorizontalOptions="Center" VerticalOptions="End" />-->
-                                                </StackLayout>
-                                            </Frame.Content>
-                                        </Frame>
+                                                <!--<Label Text="{Binding Description}" FontSize="Body" TextColor="{StaticResource OnPrimaryColor}" HorizontalOptions="Center" VerticalOptions="End" />-->
+                                            </StackLayout>
+
+                                        </controls:CustomFrame>
+                                        
                                     </StackLayout>
+                                        
 
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </controls:CustomCollectionView>
+                                    <!--</controls:CustomFrame>-->
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
 
-                </StackLayout>
-            </controls:CustomFrame>
+                        </controls:CustomCarouselView>
 
-            <!--Body-->
+                    </StackLayout>
+          
 
-            <controls:CustomFrame Grid.Row="1" BackgroundGradientStartColor="{DynamicResource primaryDark}" BackgroundGradientEndColor="{DynamicResource primary}" Margin="20" CornerRadius="15">
+                <!--Body-->
+
+                <controls:CustomFrame Grid.Row="1" CornerRadius="50,0,0,0" BackgroundGradientStartColor="{DynamicResource secondary}" BackgroundGradientEndColor="{DynamicResource secondaryDark}">
+
+                    <controls:CustomFrame BackgroundColor="{DynamicResource textOnSecondary}" Margin="25,25,25,0" Padding="5,5,5,0" CornerRadius="25,25,0,0">
+
+                        <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primary}" BackgroundGradientEndColor="{DynamicResource primaryDark}" Padding="15" CornerRadius="25,25,0,0">
+
+                            <controls:StackLayoutBindable Items="{Binding ContentData}"></controls:StackLayoutBindable>
+
+                        </controls:CustomFrame>
 
 
-                <controls:StackLayoutBindable Items="{Binding ContentData}"></controls:StackLayoutBindable>
+                        
+                        
+                        
 
-                <!--<StackLayout BindableLayout.ItemsSource="{Binding ContentData}">
+                        <!--<StackLayout BindableLayout.ItemsSource="{Binding ContentData}">
                     
                 </StackLayout>-->
-                <!--<Label Text="{Binding CurrentMainText}" FontSize="Body" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+                        <!--<Label Text="{Binding CurrentMainText}" FontSize="Body" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
 
-            </controls:CustomFrame>
+                    </controls:CustomFrame>
 
-        </Grid>
+                </controls:CustomFrame>
+
+                
+
+            </Grid>
+
+        </controls:CustomFrame>
+
+        
 
     </ContentPage.Content>
 </ContentPage>

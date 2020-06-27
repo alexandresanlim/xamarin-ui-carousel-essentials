@@ -9,8 +9,8 @@ namespace App.CardTools.Controls
     {
         public CustomEditor()
         {
-            TextColor = App.ThemeColors.TextOnPrimary;
-            BackgroundColor = App.ThemeColors.Primary;
+            //TextColor = App.ThemeColors.tex;
+            BackgroundColor = App.ThemeColors.TextOnPrimary;
         }
     }
 }

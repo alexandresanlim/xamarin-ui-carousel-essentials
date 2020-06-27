@@ -91,8 +91,8 @@ namespace App.CardTools.ViewModels
 
                         ContentData.Add(new StackLayout
                         {
-                            VerticalOptions = LayoutOptions.CenterAndExpand,
-                            Padding = new Thickness(30),
+                            //VerticalOptions = LayoutOptions.CenterAndExpand,
+                            //Padding = new Thickness(30),
                             Children =
                             {
                                 button
@@ -608,6 +608,10 @@ namespace App.CardTools.ViewModels
             {
                 CurrentSelectedTool.Command.Execute(CurrentSelectedTool.CommandParameter);
             }
+
+            //var preferenceTheme = MaterialColor.NiceCombinationList.PickRandom();
+
+            //App.LoadTheme(preferenceTheme);
         });
 
         public Command NavigateToPreferenceCommand => new Command(async () =>

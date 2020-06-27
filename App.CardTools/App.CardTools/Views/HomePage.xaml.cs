@@ -23,5 +23,15 @@ namespace App.CardTools.Views
         {
             Resources["primaryColor"] = Color.Red;
         }
+
+        private void CustomCarouselView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
+        {
+
+        }
+
+        private void CustomCarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,11 +5,11 @@ using Xamarin.Forms;
 
 namespace App.CardTools.Controls
 {
-    public class CustomLabel : Label
+    public class CustomCarouselView : CarouselView
     {
-        public CustomLabel()
+        public CustomCarouselView()
         {
-            TextColor = App.ThemeColors.TextOnPrimary;
+
         }
     }
 }
