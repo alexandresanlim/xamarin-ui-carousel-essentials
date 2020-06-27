@@ -3,6 +3,7 @@
 App cards, onde o usuário pode personalizar seus cards, 
 
 # Nome
+https://blog.verslu.is/xamarin/xamarin-forms-xamarin/google-chromecast-app/?utm_source=rss&utm_medium=rss&utm_campaign=google-chromecast-app
 AppCards.TK ToCards 4Your Cards
 Tools
 Tookit
@@ -17,6 +18,7 @@ vogelfrei.me (libre como um passaro)
 ttool.me
 1tool.me
 Haka
+Clear to one
 
 # Ideias
 
@@ -80,3 +82,5 @@ https://github.com/bbartels/Delve
 https://github.com/vespassassina/.NET-Instagram-API-Wrapper
 
 https://github.com/tmenier/Flurl
+
+https://github.com/reactiveui/refit
