@@ -14,7 +14,6 @@ using Xamarin.Forms;
 using System.Linq;
 using App.CardTools.Services.DeviceApi;
 using App.CardTools.Extention;
-using ZXing.Mobile;
 using App.CardTools.Views;
 using Xamarin.Forms.Xaml;
 using App.CardTools.Models._2___Layout;
@@ -541,53 +540,6 @@ namespace App.CardTools.ViewModels
                             }
                         });
                     })),
-                    DataTools.BarcodeReader.SetCommand(new Command(() =>
-                    {
-                        ContentData.Clear();
-
-                        var result = new CustomLabel();
-
-                        var button = new CustomFrameButton
-                        {
-                            TapButtonCommand = new Command(async () =>
-                            {
-
-                                await RequirePermission(async () =>
-                                {
-                                    await RequirePermission(async() =>
-                                    {
-                                        var scanner = DependencyService.Get<IQrCodeScanningService>();
-                                        var resultScan = await scanner.ScanAsync(new MobileBarcodeScanner
-                                        {
-                                            TopText = "Centralized on code",
-                                            BottomText = "Tap to focus",
-                                            CameraUnsupportedMessage = "Your camera don't support",
-                                            FlashButtonText = "Turn on flash",
-                                            CancelButtonText = "Cancel"
-                                        });
-
-                                        result.Text = "Result: \n"+ resultScan;
-
-                                    }, new Permissions.Camera());
-
-                                }, new Permissions.Flashlight());
-
-
-                            }),
-                            TextButton = "Scan Code"
-                        };
-
-                        ContentData.Add(new StackLayout
-                        {
-                            Padding = new Thickness(15),
-                            Children =
-                            {
-                                button,
-                                result,
-                            }
-                        });
-                    }))
-
                 };
 
                 foreach (var item in items)

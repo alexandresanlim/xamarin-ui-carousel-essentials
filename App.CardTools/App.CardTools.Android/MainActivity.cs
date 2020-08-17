@@ -9,7 +9,6 @@ using Android.OS;
 using App.CardTools.Models._1___Interface;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using ZXing.Mobile;
 
 namespace App.CardTools.Droid
 {
@@ -26,7 +25,7 @@ namespace App.CardTools.Droid
             
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            MobileBarcodeScanner.Initialize(this.Application);
+            //MobileBarcodeScanner.Initialize(this.Application);
             LoadApplication(new App());
 
             DependencyService.Register<IStatusBar, StatusBarChanger>();
