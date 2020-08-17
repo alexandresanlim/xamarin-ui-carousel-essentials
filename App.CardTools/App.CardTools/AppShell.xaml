@@ -41,9 +41,9 @@
         <!--<Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>-->
-        <Tab Title="About" Icon="tab_about.png">
+        <!--<Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
-        </Tab>
+        </Tab>-->
     </TabBar>
 
     <!--Optional Templates 
