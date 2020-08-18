@@ -1,4 +1,4 @@
-### Full app built with Xamarin Essential features.
+## Full app built only with Xamarin Essential features.
 
 Xamarin.Essentials provides several platform extension methods when having to work with platform types such as Rect, Size, and Point. This means that you can convert between the System version of these types for their iOS, Android, and UWP specific types.
 
