@@ -3,7 +3,7 @@
 
 | Screen       | Info          |
 | ------------ | ------------- |
-| <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/connection.jpg?raw=true"/> | dsfsdfsdfsfdsfsdfdsf
+| <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/connection.jpg?raw=true"/> | Description from Xamarin Essential document: The Connectivity class lets you monitor for changes in the device's network conditions, check the current network access, and how it is currently connected.
 | <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/deviceinfo.jpg?raw=true"/> | dsfsdfsdfsfdsfsdfdsf
 | <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/flashlight.jpg?raw=true"/> | dsfsdfsdfsfdsfsdfdsf
 | <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/geolocation.jpg?raw=true"/> | dsfsdfsdfsfdsfsdfdsf
