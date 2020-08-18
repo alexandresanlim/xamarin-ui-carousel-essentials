@@ -15,3 +15,12 @@ Xamarin.Essentials provides several platform extension methods when having to wo
 | <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/texttospeak.jpg?raw=true"/> | The TextToSpeech class enables an application to utilize the built-in text-to-speech engines to speak back text from the device and also to query available languages that the engine can support. </br></br><a href="https://www.youtube.com/watch?v=ptLFOFXnE2o"><img width="300" src="https://img.youtube.com/vi/ptLFOFXnE2o/0.jpg"></a>
 | <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/unitconverter.jpg?raw=true"/> | The UnitConverters class provides several unit converters to help developers when using Xamarin.Essentials. </br></br><a href="https://www.youtube.com/watch?v=hbRs4SC9PLg"><img width="300" src="https://img.youtube.com/vi/hbRs4SC9PLg/0.jpg"></a>
 | <img id="dashboard_drawer" width="300" src="https://github.com/alexandresanlim/Xamarin.Essentials.FullAppFeatures/blob/master/App.CardTools/App.CardTools/Src/Screen/Android/whats.jpg?raw=true"/> | The Launcher class enables an application to open a URI by the system. This is often used when deep linking into another application's custom URI schemes. </br></br><a href="https://www.youtube.com/watch?v=2mX0jLck-7I"><img width="300" src="https://img.youtube.com/vi/2mX0jLck-7I/0.jpg"></a>
+
+## More
+
+Third-party packages used: <br/>
+[Pancake View](https://github.com/sthewissen/Xamarin.Forms.PancakeView)
+
+<a href="https://github.com/alexandresanlim/XamarinUI.MyGallery"><img src="https://github.com/alexandresanlim/XamarinUI.MyGallery/blob/master/xamarin_ui_gallery_head.png?raw=true" /></a>
+
+<a href="https://snppts.dev/author/alexandresanlim" target="_blank"><img src="https://camo.githubusercontent.com/b72b502eb8f3df149f75f8a72f7d0f9f35728827/68747470733a2f2f7777772e736e707074732e6465762f696d672f736e707074732d62616467652e6a7067" /></a>
