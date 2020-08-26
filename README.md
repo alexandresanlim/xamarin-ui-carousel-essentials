@@ -1,4 +1,4 @@
-## Full app built only with Xamarin Essential features.
+### It's a full app built only with Xamarin Essential features.
 
 <img id="dashboard_drawer" width="300" src="https://raw.githubusercontent.com/alexandresanlim/App.OnlyEssentialsFeatures/master/App.CardTools/App.CardTools/Src/Screen/gif.gif"/> 
 
