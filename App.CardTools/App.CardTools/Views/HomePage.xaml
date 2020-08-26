@@ -22,56 +22,24 @@
 
         <controls:CustomFrame BackgroundGradientStartColor="{DynamicResource primaryDark}" BackgroundGradientEndColor="{DynamicResource primary}">
 
+            <controls:CustomFrame.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,35,0,0" />
+                    <!--<On Platform="Android" Value="25,15" />-->
+                </OnPlatform>
+            </controls:CustomFrame.Padding>
+
             <Grid>
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.4*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!--Tools List-->
-
 
                 <StackLayout Grid.Row="0">
-                        <!--<StackLayout Margin="15,20" Spacing="0">
 
-                        <Grid ColumnSpacing="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Frame Grid.Column="0" CornerRadius="100" 
-                                       HeightRequest="60"
-                                       WidthRequest="60"
-                                       Padding="0"
-                                       IsClippedToBounds="True"
-                                       >
-                                <Image Source="https://avatars1.githubusercontent.com/u/5353685?v=4" />
-                            </Frame>
-                            <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="CenterAndExpand">
-                                <Label Text="Alexandre Sanlim" FontAttributes="Bold" FontSize="Title" TextColor="{DynamicResource secondaryTextColor}"/>
-                                <Label Text="alexandresanlim.github.io" FontSize="Subtitle" TextColor="{DynamicResource secondaryTextColor}"/>
-                            </StackLayout>
-                            <Image Grid.Column="2" VerticalOptions="Start">
-                                <Image.Source>
-                                    <FontImageSource
-                                        Color="{DynamicResource secondaryTextColor}"
-                                        FontFamily="{DynamicResource MaterialFontFamily}"
-                                        Size="25"
-                                        Glyph="&#xf0f3;"
-                                        />
-                                </Image.Source>
-                            </Image>
-                        </Grid>
-
-
-                    </StackLayout>-->
-
-                        <Image HorizontalOptions="End" Margin="10,15">
+                    <Image HorizontalOptions="End" Margin="10,15">
                             <Image.Source>
                                 <FontImageSource
                                         Color="{DynamicResource textOnPrimary}"

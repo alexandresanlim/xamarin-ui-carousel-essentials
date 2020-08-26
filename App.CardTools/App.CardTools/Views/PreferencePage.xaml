@@ -15,7 +15,15 @@
     <ContentPage.Content>
         <StackLayout Spacing="30">
 
-            <controls:CustomFrame BackgroundColor="{DynamicResource primaryDark}" CornerRadius="0,0,50,0" Padding="30">
+            <controls:CustomFrame BackgroundColor="{DynamicResource primaryDark}" CornerRadius="0,0,50,0">
+
+                <controls:CustomFrame.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,50,30,30" />
+                        <On Platform="Android" Value="30" />
+                    </OnPlatform>
+                </controls:CustomFrame.Padding>
+
                 <StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Image>
